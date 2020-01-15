@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HarbiSahaYoneticiApp.PopupPages.BasePopupPage"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" 
+                 CloseWhenBackgroundIsClicked="False" IsAnimating="True">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            >
+
+
+        </animations:ScaleAnimation>
+
+
+    </pages:PopupPage.Animation>
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center" BackgroundColor="White" HeightRequest="80" WidthRequest="260" >
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Row="1" Grid.Column="0" x:Name="ActivityLayout" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="10" Padding="2">
+                
+                <AbsoluteLayout Margin="8,0,2,0" VerticalOptions="Center">
+                    <ActivityIndicator x:Name="activity"  
+                       IsRunning="True"  
+                       IsEnabled="True"  
+                       IsVisible="True"  
+                       Color="DarkGray"  
+                       BackgroundColor="Transparent"/>
+                </AbsoluteLayout>
+                <Label x:Name="lblText" Text="Lütfen bekleyiniz.." HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Margin="0,0,8,0"></Label>
+            </StackLayout>
+
+        </Grid>
+
+
+        <!--<StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <StackLayout x:Name="secondStack" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            </StackLayout>
+            <StackLayout x:Name="firstStack" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Label Text="Lütfen bekleyiniz.."></Label>
+
+            </StackLayout>
+
+            <StackLayout x:Name="ActivityLayout" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="10" Padding="7">
+                <AbsoluteLayout>
+                    <ActivityIndicator x:Name="activity"  
+                       IsRunning="True"  
+                       IsEnabled="True"  
+                       IsVisible="True"  
+                       Color="Blue"  
+                       BackgroundColor="Transparent"/>
+                </AbsoluteLayout>
+            </StackLayout>
+
+
+        </StackLayout>-->
+
+
+    </StackLayout>
+    </pages:PopupPage>

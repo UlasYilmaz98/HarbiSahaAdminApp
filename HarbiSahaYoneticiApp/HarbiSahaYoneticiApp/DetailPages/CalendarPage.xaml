@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HarbiSahaYoneticiApp.DetailPages.CalendarPage"
+             Title="Takvim"
+             xmlns:customControl="clr-namespace:HarbiSahaYoneticiApp.CustomControls">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Grid">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal" />
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="White" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid RowSpacing="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="12*">
+                    </RowDefinition>
+                </Grid.RowDefinitions>
+
+
+                <Grid HorizontalOptions="FillAndExpand" Margin="8,1,8,1" Padding="0" Grid.Row="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <!--<RowDefinition Height="Auto"></RowDefinition>-->
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <!--<Label Text=" ÖNCEKİ " Grid.Row="0" FontAttributes="Bold" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" ></Label>-->
+
+                    <!--<Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent"
+                       BorderColor="Transparent" Padding="0" Margin="0">
+                    <customControl:XDatePicker x:Name="datePicker1" 
+                           Margin="35,0,0,0"     DateSelected="DatePicker1_DateSelected" HorizontalOptions="FillAndExpand" VerticalOptions="Center"  ></customControl:XDatePicker>
+                    
+                </Frame>-->
+                    <DatePicker x:Name="datePicker1" Grid.Row="0" Grid.Column="0" BackgroundColor="#ebebeb" FontSize="Medium"
+                           Margin="0,0,0,0"     DateSelected="DatePicker1_DateSelected" HorizontalOptions="FillAndExpand" VerticalOptions="Center"  ></DatePicker>
+                    <Picker x:Name="pickerFieldZone" HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                     FontSize="Medium" BackgroundColor="#ebebeb"   Grid.Row="0" Grid.Column="1" SelectedIndexChanged="PickerFieldZone_SelectedIndexChanged"></Picker>
+
+                    <!--<Label Text=" SONRAKİ " FontAttributes="Bold" Grid.Row="0" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center" ></Label>-->
+                    <!--<BoxView HeightRequest="0.2" HorizontalOptions="FillAndExpand" Margin="5,0,5,0" Color="LightGray" Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="0"></BoxView>-->
+                </Grid>
+                <StackLayout IsVisible="False"  x:Name="ActivityLayout" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="10" Padding="7">
+                    <Label Text="İlanlar yükleniyor..." TextColor="#2dbefc" Grid.Row="1"></Label>
+                    <AbsoluteLayout HorizontalOptions="Center">
+                        <ActivityIndicator x:Name="activity"  
+                       IsRunning="True"  
+                       IsEnabled="True"  
+                       IsVisible="True"  
+                       Color="#2dbefc"  
+                       BackgroundColor="Transparent"/>
+                    </AbsoluteLayout>
+
+                </StackLayout>
+                <CollectionView x:Name="colMatches" SelectionMode="Single" Margin="8,2,8,1" IsVisible="False"  Grid.Row="1"
+                                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" SelectionChanged="ColMatches_SelectionChanged">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout  Orientation="Vertical" Span="3" VerticalItemSpacing="2" ></GridItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BorderColor="LightGray" CornerRadius="10"
+                               Margin="0" Padding="0" BackgroundColor="{Binding BgColor}" IsEnabled="{Binding EnableSituation}"
+                               Opacity="{Binding Opacity}" HasShadow="False">
+
+                                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="4">
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label FontFamily="{StaticResource FontAwesomeSolid}" Text="sticky-note" FontAttributes="Bold" HorizontalOptions="Center"
+                                           Grid.Row="0" Grid.Column="0"  TextColor="{Binding TextColor}" IsVisible="{Binding haveNote}"></Label>
+                                        <Label FontFamily="{StaticResource FontAwesomeSolid}" Text="user-clock" FontAttributes="Bold" HorizontalOptions="Center"
+                                           Grid.Row="0" Grid.Column="2" TextColor="{Binding TextColor}" IsVisible="{Binding haveSubscribe}"></Label>
+
+                                        <Label Grid.Row="0" Text="{Binding Time}" Grid.Column="1" TextColor="{Binding TextColor}" HorizontalOptions="CenterAndExpand"></Label>
+                                        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding Situation}" TextColor="{Binding TextColor}"
+                                      FontAttributes="Bold" HorizontalOptions="CenterAndExpand"  ></Label>
+                                        <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding rentedFrom}" TextColor="{Binding TextColor}" HorizontalOptions="CenterAndExpand"></Label>
+                                        <Label FontFamily="{StaticResource FontAwesomeSolid}" Text="coins" FontAttributes="Bold" HorizontalOptions="Center"
+                                           Grid.Row="2" Grid.Column="2" TextColor="{Binding TextColor}" IsVisible="{Binding haveDiscount}"></Label>
+
+                                    </Grid>
+
+
+                                </Frame>
+                            </Grid>
+
+
+                        </DataTemplate>
+
+
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+
+            <!--<Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=""></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+
+
+            </Grid>-->
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

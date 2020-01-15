@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HarbiSahaYoneticiApp.LoginPage">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
+            <Label Text="HARBİ SAHA YÖNETİCİ PANELİ GİRİŞ" FontSize="Large" Margin="10,30,10,10" FontAttributes="Bold" TextColor="#0782A3"></Label>
+
+            <StackLayout x:Name="loginLayout" Margin="10,5,10,10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Label FontSize="Small" Text="E-posta Adresi"></Label>
+                <Entry x:Name="entryEmail" FontSize="Medium" Margin="0,0,0,5" Unfocused="EntryEmail_Unfocused" Completed="EntryEmail_Completed"></Entry>
+                <Label FontSize="Small" Text="Şifre"></Label>
+                <Entry x:Name="entryPassword" IsPassword="True" FontSize="Medium" Margin="0,0,0,0" ></Entry>
+                <Button x:Name="btnLogin" Text="Giriş Yap" HorizontalOptions="FillAndExpand" Margin="0,10,0,0" 
+                       TextColor="White" BackgroundColor="#0782A3" Clicked="BtnLogin_Clicked"></Button>
+                <Button x:Name="btnForgotPassword" Text="Şifremi Unuttum" HorizontalOptions="FillAndExpand" Margin="0,10,0,0" 
+                       TextColor="White" BackgroundColor="#8a8a8a" Clicked="BtnForgotPassword_Clicked"></Button>
+
+
+            </StackLayout>
+
+
+
+            <StackLayout Margin="10,10,10,10"  VerticalOptions="EndAndExpand">
+                <BoxView Margin="10,2,10,2" HeightRequest="1" HorizontalOptions="FillAndExpand" Color="Gray" Opacity="0.4"></BoxView>
+                <StackLayout   Orientation="Horizontal">
+                    
+                    <Image Margin="10,10,10,10" Source="alternativeLogoTransparent1.png" Aspect="AspectFit" HeightRequest="120" VerticalOptions="Center"></Image>
+                    <StackLayout VerticalOptions="Center" >
+                        <Label Text="Harbi Saha Canlı Destek Hattı / Sorun Bildir " Margin="0,0,0,4"></Label>
+                        <StackLayout Orientation="Horizontal">
+
+                            <Image Source="phoneIcon.png" HeightRequest="32" Aspect="AspectFit" Margin="0,0,8,0">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="PhoneCallMethod"></TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label FontSize="Medium" Text=" 0850 305 5095" TextColor="CornflowerBlue">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="PhoneCallMethod"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+
+                        </StackLayout>
+                    </StackLayout>
+
+                </StackLayout>
+            </StackLayout>
+           
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

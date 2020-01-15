@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HarbiSahaYoneticiApp.PopupPages.AddSubscribePopupPage"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" 
+                 CloseWhenBackgroundIsClicked="True" IsAnimating="True">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            >
+
+
+        </animations:ScaleAnimation>
+
+
+    </pages:PopupPage.Animation>
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300" HeightRequest="300" BackgroundColor="White">
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10,10,10,10">
+            <Label Text="Oluşturmak istediğiniz abonelik için gün ve saat girin." FontSize="Medium" FontAttributes="Bold" TextColor="Black"></Label>
+            <Picker x:Name="pickerDays" Margin="0,10,20,0" HorizontalOptions="FillAndExpand" FontSize="Medium" Title="Gün Seçin" SelectedIndexChanged="PickerDays_SelectedIndexChanged"></Picker>
+            <Picker x:Name="pickerTimes" Margin="0,10,20,0" HorizontalOptions="FillAndExpand" FontSize="Medium" Title="Saat Seçin" IsEnabled="False"></Picker>
+
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Margin="0,0,0,6">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label TextColor="DarkBlue" Text="Vazgeç"  FontAttributes="Bold" x:Name="lblCancel" Grid.Row="0" Grid.Column="1">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="tapCancel" Tapped="TapCancel_Tapped"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label TextColor="DarkBlue" Text="Oluştur" FontAttributes="Bold" x:Name="lblCreate" Grid.Row="0" Grid.Column="2">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="tapCreate" Tapped="TapCreate_Tapped"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                </Grid>
+            </StackLayout>
+
+        </StackLayout>
+    
+        
+
+
+    </StackLayout>
+</pages:PopupPage>

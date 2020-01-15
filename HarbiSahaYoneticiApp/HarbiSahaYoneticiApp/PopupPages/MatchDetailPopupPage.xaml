@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HarbiSahaYoneticiApp.PopupPages.MatchDetailPopupPage"
+              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" 
+                 CloseWhenBackgroundIsClicked="True" IsAnimating="True">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            >
+
+
+        </animations:ScaleAnimation>
+
+
+    </pages:PopupPage.Animation>
+    
+    
+
+    <ScrollView HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="400" WidthRequest="300" BackgroundColor="White">
+
+        
+        
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="8,8,8,8">
+
+            <StackLayout IsVisible="False"  x:Name="ActivityLayout" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="10" Padding="7">
+                <Label Text="Yükleniyor..." TextColor="#2dbefc" Grid.Row="1"></Label>
+                <AbsoluteLayout HorizontalOptions="Center">
+                    <ActivityIndicator x:Name="activity"  
+                       IsRunning="True"  
+                       IsEnabled="True"  
+                       IsVisible="True"  
+                       Color="#2dbefc"  
+                       BackgroundColor="Transparent"/>
+                </AbsoluteLayout>
+
+            </StackLayout>
+
+
+            <StackLayout x:Name="layoutMain" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="True">
+                <Label x:Name="lblDate" TextColor="#495764" FontAttributes="Bold" FontSize="Medium" Text="" HorizontalOptions="FillAndExpand" Margin="0,0,0,12"></Label>
+                <BoxView HeightRequest="1" Opacity="0.5" Color="Gray" HorizontalOptions="FillAndExpand"></BoxView>
+                <Grid HorizontalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Durumu" TextColor="#495764" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"
+                           VerticalOptions="Center"></Label>
+                    <Label x:Name="lblSituation" Text="" TextColor="#495764"  Grid.Row="0" Grid.Column="1"
+                           VerticalOptions="Center"></Label>
+                </Grid>
+                <BoxView HeightRequest="1" Opacity="0.5" Color="Gray" HorizontalOptions="FillAndExpand"></BoxView>
+                <Grid HorizontalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Kapora Durumu" TextColor="#495764" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"
+                           VerticalOptions="Center"></Label>
+                    <Label x:Name="lblSituationKapora" Text="" TextColor="#495764"  Grid.Row="0" Grid.Column="1"
+                           VerticalOptions="Center"></Label>
+                </Grid>
+                <BoxView HeightRequest="1" Opacity="0.5" Color="Gray" HorizontalOptions="FillAndExpand"></BoxView>
+                <Grid HorizontalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Kiralayan Kullanıcı" TextColor="#495764" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"
+                           VerticalOptions="Center"></Label>
+                    <Label x:Name="lblUser" Text="" TextColor="#495764"  Grid.Row="0" Grid.Column="1"
+                           VerticalOptions="Center"></Label>
+                </Grid>
+                <BoxView HeightRequest="1" Opacity="0.5" Color="Gray" HorizontalOptions="FillAndExpand"></BoxView>
+                <Grid HorizontalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Telefon Numarası" TextColor="#495764" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"
+                           VerticalOptions="Center"></Label>
+                    <Label x:Name="lblUserPhone" Text="" TextColor="#495764"  Grid.Row="0" Grid.Column="1"
+                           VerticalOptions="Center"></Label>
+                </Grid>
+                <BoxView HeightRequest="1" Opacity="0.5" Color="Gray" HorizontalOptions="FillAndExpand"></BoxView>
+                <Grid HorizontalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Mail Adresi" TextColor="#495764" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"
+                           VerticalOptions="Center"></Label>
+                    <Label x:Name="lblUserEmail" Text="" TextColor="#495764"  Grid.Row="0" Grid.Column="1"
+                           VerticalOptions="Center"></Label>
+                </Grid>
+                <BoxView HeightRequest="1" Opacity="0.5" Color="Gray" HorizontalOptions="FillAndExpand"></BoxView>
+                <Grid HorizontalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Not" TextColor="#495764" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"
+                           VerticalOptions="Center"></Label>
+                    <Label x:Name="lblNote" Text="" TextColor="#495764"  Grid.Row="0" Grid.Column="1"
+                           VerticalOptions="Center"></Label>
+                </Grid>
+                <Button HorizontalOptions="FillAndExpand" Text="Tamam" x:Name="btnExit" Clicked="BtnExit_Clicked"></Button>
+            </StackLayout>
+
+
+        </StackLayout>
+
+
+    </ScrollView>
+
+
+</pages:PopupPage>

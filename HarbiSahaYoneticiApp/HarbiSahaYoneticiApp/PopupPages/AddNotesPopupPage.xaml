@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HarbiSahaYoneticiApp.PopupPages.AddNotesPopupPage"
+                  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" 
+                 CloseWhenBackgroundIsClicked="True" IsAnimating="True">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            >
+
+
+        </animations:ScaleAnimation>
+
+
+    </pages:PopupPage.Animation>
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="300" HeightRequest="400" BackgroundColor="White">
+
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="12,12,12,2" RowSpacing="8">
+
+            <Grid.RowDefinitions >
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="8*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label x:Name="lblDate" Grid.Row="0" Grid.Column="0" FontSize="Medium" FontAttributes="Bold" TextColor="Black"></Label>
+            <StackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                <Label Text="Notu girin" FontSize="Small"></Label>
+                <Editor x:Name="editorNote" FontSize="Medium" HeightRequest="100" HorizontalOptions="FillAndExpand"></Editor>
+               
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="0">
+                <Label x:Name="lblSave" Text="KAYDET" TextColor="Blue" HorizontalOptions="End" Margin="0,0,10,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="tapSave" Tapped="TapSave_Tapped"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label x:Name="lblCancel" Text="VAZGEÇ" TextColor="Blue" HorizontalOptions="End" Margin="0,0,0,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="tapCancel" Tapped="TapCancel_Tapped"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+        </Grid>
+
+
+    </StackLayout>
+</pages:PopupPage>

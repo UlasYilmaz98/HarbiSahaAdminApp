@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HarbiSahaYoneticiApp.DetailPages.MonthlyReportsPage" Title="Aylık Raporlar">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid HorizontalOptions="FillAndExpand" Margin="8,5,8,2" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <!--<Label Text=" ÖNCEKİ " Grid.Row="0" FontAttributes="Bold" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" ></Label>-->
+                <!--<Button Text="ÖNCE" x:Name="btnPrev" FontSize="Small" Grid.Row="0" FontAttributes="Bold"
+                        Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Clicked="BtnPrev_Clicked"></Button>-->
+                <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent"
+                       BorderColor="Transparent" Padding="0" Margin="0">
+                    <Picker x:Name="datePicker1" 
+                           Margin="0,0,0,0" BackgroundColor="#ebebeb" SelectedIndexChanged="DatePicker1_SelectedIndexChanged"
+                            HorizontalOptions="FillAndExpand" VerticalOptions="Center"  ></Picker>
+
+                </Frame>
+                <!--<Button Text="SONR" x:Name="btnNext"  FontSize="Small" Grid.Row="0" Clicked="BtnNext_Clicked"
+                        FontAttributes="Bold" Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="Center"></Button>-->
+                <!--<Label Text=" SONRAKİ " FontAttributes="Bold" Grid.Row="0" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center" ></Label>-->
+
+
+
+                <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="12,12,12,0">
+
+                    <Grid Margin="0" Padding="0" ColumnSpacing="0" RowSpacing="0">
+                        <Grid.RowDefinitions >
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+
+
+                        <BoxView HeightRequest="0.5" Opacity="0.3" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5"
+                                 Color="Gray"></BoxView>
+                        <BoxView HeightRequest="0.5" Opacity="0.3" HorizontalOptions="FillAndExpand" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5"
+                                 Color="Gray"></BoxView>
+                        <BoxView HeightRequest="0.5" Opacity="0.3" HorizontalOptions="FillAndExpand" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="5"
+                                 Color="Gray"></BoxView>
+                        <BoxView HeightRequest="0.5" Opacity="0.3" HorizontalOptions="FillAndExpand" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="5"
+                                 Color="Gray"></BoxView>
+                        <BoxView HeightRequest="0.5" Opacity="0.3" HorizontalOptions="FillAndExpand" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="5"
+                                 Color="Gray"></BoxView>
+                        <BoxView WidthRequest="0.5" Opacity="0.3" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.RowSpan="9" Grid.Column="4" 
+                                 Color="Gray"></BoxView>
+                        <BoxView WidthRequest="0.5" Opacity="0.3" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.RowSpan="9" Grid.Column="2" 
+                                 Color="Gray"></BoxView>
+                        <BoxView WidthRequest="0.5" Opacity="0.3" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.RowSpan="9" Grid.Column="0" 
+                                 Color="Gray"></BoxView>
+                   
+                        <Label  Margin="8,4,0,4"  Text="Aylık Toplam Kiralama" 
+                                               Grid.Row="1" Grid.Column="1" FontSize="Medium" VerticalOptions="Center"></Label>
+                        <Label  x:Name="lblDailyTotalRenting" Text="" FontSize="Medium" Grid.Row="1" Grid.Column="3"
+                                              HorizontalOptions="EndAndExpand"  VerticalOptions="Center" Margin="0,4,8,4" ></Label>
+
+                        <Label Margin="8,4,0,4" Text="Aylık Online kiralama" 
+                                               Grid.Row="3" Grid.Column="1" FontSize="Medium" VerticalOptions="Center"></Label>
+                        <Label  x:Name="lblDailyTotalRentingHS" Text="" FontSize="Medium" Grid.Row="3" Grid.Column="3"
+                                              HorizontalOptions="EndAndExpand"  VerticalOptions="Center" Margin="0,4,8,4" ></Label>
+
+
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Grid.Row="5" Grid.Column="1"
+                                     BackgroundColor="#ebebeb"  Margin="0" Padding="0">
+                            <Label  Margin="8,4,0,4"  Text="Aylık Toplam Gelir"   VerticalOptions="CenterAndExpand"
+                                              FontSize="Medium"></Label>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Grid.Row="5" Grid.Column="3"
+                                     BackgroundColor="#ebebeb" Margin="0" Padding="0">
+                            <Label  x:Name="lblDailyTotalIncome" Text="" FontSize="Medium"
+                                              HorizontalOptions="EndAndExpand"  VerticalOptions="CenterAndExpand" Margin="0,4,8,4" ></Label>
+                        </StackLayout>
+
+                        <Label Margin="8,4,0,4" Text="En yoğun gün" 
+                                               Grid.Row="7" Grid.Column="1" FontSize="Medium" VerticalOptions="Center"></Label>
+                        <Label  x:Name="lblMostDay" Text="" FontSize="Medium" Grid.Row="7" Grid.Column="3"
+                                              HorizontalOptions="EndAndExpand"  VerticalOptions="Center" Margin="0,4,8,4" ></Label>
+
+
+
+
+
+                    </Grid>
+
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

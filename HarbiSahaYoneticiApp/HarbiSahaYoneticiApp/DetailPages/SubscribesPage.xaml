@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HarbiSahaYoneticiApp.DetailPages.SubscribesPage"
+             Title="Abonelikler"
+             xmlns:xcontrol="clr-namespace:HarbiSahaYoneticiApp.CustomControls">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Grid">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal" />
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="White" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="8,10,8,4">
+                    <StackLayout Orientation="Horizontal">
+                        <Button x:Name="addSub" Clicked="AddSub_Clicked" Margin="8,4,8,8" BackgroundColor="#495764" TextColor="#F6F8D3" FontAttributes="Bold"
+                    HorizontalOptions="FillAndExpand" Text="Yeni abonelik oluştur" CornerRadius="14"></Button>
+                        <Frame Margin="0" Padding="0" BackgroundColor="Transparent" CornerRadius="14" HorizontalOptions="FillAndExpand">
+                            <Picker x:Name="pickerFieldZone" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                                    BackgroundColor="Transparent" TextColor="#495764" FontAttributes="Bold" SelectedIndexChanged="PickerFieldZone_SelectedIndexChanged"></Picker>
+                        </Frame>
+                    </StackLayout>
+                    <Label FontSize="Large" TextColor="#495764" Text="Pazartesi" FontAttributes="Bold"></Label>
+                    <Label x:Name="lblAlertMonday" FontAttributes="Italic" Text="Abonelik bulunmuyor!" HorizontalOptions="Center" IsVisible="False"></Label>
+                    <CollectionView  HeightRequest="60" x:Name="colMonday" SelectionMode="Single" Margin="0" SelectionChanged="ColMonday_SelectionChanged">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="4" HorizontalItemSpacing="4" VerticalItemSpacing="4"></GridItemsLayout>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Frame  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent"
+                                   BorderColor="#d6d6d6" CornerRadius="14" Margin="0" Padding="5" >
+                                        <Grid RowSpacing="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Label FontSize="Medium" FontAttributes="Bold" TextColor="#495764" Grid.Row="0" Grid.Column="0"
+                                               HorizontalOptions="CenterAndExpand" VerticalOptions="End" Text="{Binding Time}"></Label>
+                                            <Label FontSize="Small" FontAttributes="Bold,Italic"  Grid.Row="1" Grid.Column="0"
+                                               HorizontalOptions="CenterAndExpand" Text="Abonelik" VerticalOptions="Start"></Label>
+                                        </Grid>
+
+
+
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Opacity="0.5" ></BoxView>
+
+                    <Label FontSize="Large" TextColor="#495764" Text="Salı" FontAttributes="Bold" Margin="0,5,0,0"></Label>
+                    <Label x:Name="lblAlertTuesday" FontAttributes="Italic" Text="Abonelik bulunmuyor!" HorizontalOptions="Center" IsVisible="False"></Label>
+                    <CollectionView  HeightRequest="60" x:Name="colTuesday" SelectionMode="Single" Margin="0" SelectionChanged="ColMonday_SelectionChanged">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="4" HorizontalItemSpacing="4" VerticalItemSpacing="4"></GridItemsLayout>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Frame  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent"
+                                   BorderColor="#d6d6d6" CornerRadius="14" Margin="0" Padding="5" >
+                                        <Grid RowSpacing="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Label FontSize="Medium" FontAttributes="Bold" TextColor="#495764" Grid.Row="0" Grid.Column="0"
+                                               HorizontalOptions="CenterAndExpand" VerticalOptions="End" Text="{Binding Time}"></Label>
+                                            <Label FontSize="Small" FontAttributes="Bold,Italic"  Grid.Row="1" Grid.Column="0"
+                                               HorizontalOptions="CenterAndExpand" Text="Abonelik" VerticalOptions="Start"></Label>
+                                        </Grid>
+
+
+
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Opacity="0.5" ></BoxView>
+
+                    <Label FontSize="Large" TextColor="#495764" Text="Çarşamba" FontAttributes="Bold" Margin="0,5,0,0"></Label>
+                    <Label x:Name="lblAlertWednesday" FontAttributes="Italic" Text="Abonelik bulunmuyor!" HorizontalOptions="Center" IsVisible="False"></Label>
+                    <CollectionView   x:Name="colWednesday" SelectionMode="Single" Margin="0" SelectionChanged="ColMonday_SelectionChanged" HeightRequest="60">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="4" HorizontalItemSpacing="4" VerticalItemSpacing="4"></GridItemsLayout>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Frame  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent"
+                                   BorderColor="#d6d6d6" CornerRadius="14" Margin="0" Padding="5" >
+                                        <Grid RowSpacing="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Label FontSize="Medium" FontAttributes="Bold" TextColor="#495764" Grid.Row="0" Grid.Column="0"
+                                               HorizontalOptions="CenterAndExpand" VerticalOptions="End" Text="{Binding Time}"></Label>
+                                            <Label FontSize="Small" FontAttributes="Bold,Italic"  Grid.Row="1" Grid.Column="0"
+                                               HorizontalOptions="CenterAndExpand" Text="Abonelik" VerticalOptions="Start"></Label>
+                                        </Grid>
+
+
+
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Opacity="0.5" ></BoxView>
+
+                    <Label FontSize="Large" TextColor="#495764" Text="Perşembe" FontAttributes="Bold" Margin="0,5,0,0"></Label>
+                    <Label x:Name="lblAlertThursday" FontAttributes="Italic" Text="Abonelik bulunmuyor!" HorizontalOptions="Center" IsVisible="False"></Label>
+                    <CollectionView  HeightRequest="60" x:Name="colThursday" SelectionMode="Single" Margin="0" SelectionChanged="ColMonday_SelectionChanged">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="4" HorizontalItemSpacing="4" VerticalItemSpacing="4"></GridItemsLayout>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Frame  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent"
+                                   BorderColor="#d6d6d6" CornerRadius="14" Margin="0" Padding="5" >
+                                        <Grid RowSpacing="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Label FontSize="Medium" FontAttributes="Bold" TextColor="#495764" Grid.Row="0" Grid.Column="0"
+                                               HorizontalOptions="CenterAndExpand" VerticalOptions="End" Text="{Binding Time}"></Label>
+                                            <Label FontSize="Small" FontAttributes="Bold,Italic"  Grid.Row="1" Grid.Column="0"
+                                               HorizontalOptions="CenterAndExpand" Text="Abonelik" VerticalOptions="Start"></Label>
+                                        </Grid>
+
+
+
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Opacity="0.5" ></BoxView>
+
+                    <Label FontSize="Large" TextColor="#495764" Text="Cuma" FontAttributes="Bold" Margin="0,5,0,0"></Label>
+                    <Label x:Name="lblAlertFriday" FontAttributes="Italic" Text="Abonelik bulunmuyor!" HorizontalOptions="Center" IsVisible="False"></Label>
+                    <CollectionView  HeightRequest="60" x:Name="colFriday" SelectionMode="Single" Margin="0" SelectionChanged="ColMonday_SelectionChanged">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="4" HorizontalItemSpacing="4" VerticalItemSpacing="4"></GridItemsLayout>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Frame  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent"
+                                   BorderColor="#d6d6d6" CornerRadius="14" Margin="0" Padding="5" >
+                                        <Grid RowSpacing="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Label FontSize="Medium" FontAttributes="Bold" TextColor="#495764" Grid.Row="0" Grid.Column="0"
+                                               HorizontalOptions="CenterAndExpand" VerticalOptions="End" Text="{Binding Time}"></Label>
+                                            <Label FontSize="Small" FontAttributes="Bold,Italic"  Grid.Row="1" Grid.Column="0"
+                                               HorizontalOptions="CenterAndExpand" Text="Abonelik" VerticalOptions="Start"></Label>
+                                        </Grid>
+
+
+
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Opacity="0.5" ></BoxView>
+
+                    <Label FontSize="Large" TextColor="#495764" Text="Cumartesi" FontAttributes="Bold" Margin="0,5,0,0"></Label>
+                    <Label x:Name="lblAlertSaturday" FontAttributes="Italic" Text="Abonelik bulunmuyor!" HorizontalOptions="Center" IsVisible="False"></Label>
+                    <CollectionView  HeightRequest="60" x:Name="colSaturday" SelectionMode="Single" Margin="0" SelectionChanged="ColMonday_SelectionChanged">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="4" HorizontalItemSpacing="4" VerticalItemSpacing="4"></GridItemsLayout>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Frame  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent"
+                                   BorderColor="#d6d6d6" CornerRadius="14" Margin="0" Padding="5" >
+                                        <Grid RowSpacing="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Label FontSize="Medium" FontAttributes="Bold" TextColor="#495764" Grid.Row="0" Grid.Column="0"
+                                               HorizontalOptions="CenterAndExpand" VerticalOptions="End" Text="{Binding Time}"></Label>
+                                            <Label FontSize="Small" FontAttributes="Bold,Italic"  Grid.Row="1" Grid.Column="0"
+                                               HorizontalOptions="CenterAndExpand" Text="Abonelik" VerticalOptions="Start"></Label>
+                                        </Grid>
+
+
+
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Opacity="0.5" ></BoxView>
+
+                    <Label FontSize="Large" TextColor="#495764" Text="Pazar" FontAttributes="Bold" Margin="0,5,0,0"></Label>
+                    <Label x:Name="lblAlertSunday" FontAttributes="Italic" Text="Abonelik bulunmuyor!" HorizontalOptions="Center" IsVisible="False"></Label>
+                    <CollectionView  HeightRequest="60" x:Name="colSunday" SelectionMode="Single" Margin="0" SelectionChanged="ColMonday_SelectionChanged">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="4" HorizontalItemSpacing="4" VerticalItemSpacing="4"></GridItemsLayout>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Frame  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent"
+                                   BorderColor="#d6d6d6" CornerRadius="14" Margin="0" Padding="5" >
+                                        <Grid RowSpacing="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Label FontSize="Medium" FontAttributes="Bold" TextColor="#495764" Grid.Row="0" Grid.Column="0"
+                                               HorizontalOptions="CenterAndExpand" VerticalOptions="End" Text="{Binding Time}"></Label>
+                                            <Label FontSize="Small" FontAttributes="Bold,Italic"  Grid.Row="1" Grid.Column="0"
+                                               HorizontalOptions="CenterAndExpand" Text="Abonelik" VerticalOptions="Start"></Label>
+                                        </Grid>
+
+
+
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

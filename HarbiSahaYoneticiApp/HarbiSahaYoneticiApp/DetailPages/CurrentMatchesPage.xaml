@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HarbiSahaYoneticiApp.DetailPages.CurrentMatchesPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Grid">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal" />
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="White" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="12,8,12,0">
+
+                <Label Text="Harbi Saha üzerinden yapılan güncel kiralamalar bu sayfada görünür." FontSize="Large" TextColor="#495764"
+                   FontAttributes="Bold" IsVisible="True"></Label>
+                <Label x:Name="lblAlert" Text="Güncel durumda kiralama bulunmuyor." HorizontalOptions="CenterAndExpand" FontSize="Medium" 
+                   FontAttributes="Bold" IsVisible="False"></Label>
+                <CollectionView x:Name="colMatches" SelectionMode="Single" Margin="8,5,8,5" IsVisible="True" 
+                                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" SelectionChanged="ColMatches_SelectionChanged">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout  Orientation="Vertical" Span="1" VerticalItemSpacing="4" ></GridItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent"
+                                   BorderColor="#d6d6d6" CornerRadius="2" Margin="0" Padding="5" >
+
+                                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                                            <ColumnDefinition Width="75*"></ColumnDefinition>
+                                            <ColumnDefinition Width="20*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Margin="5,0,0,0" Text="{Binding DateStr}"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Medium" FontAttributes="Bold" TextColor="Black"></Label>
+                                        <Label Margin="5,0,0,0" Text="{Binding Time}"  Grid.Row="0" Grid.Column="2" FontSize="Medium" FontAttributes="Bold" TextColor="#00103d"></Label>
+                                        
+                                        <Label Text="{Binding UserNameText}" FontAttributes="Bold" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"></Label>
+                                        <Label FontFamily="{StaticResource FontAwesomeSolid}" Grid.Row="2" Grid.Column="0"
+                                           Text="check" TextColor="Black" FontAttributes="Bold" IsVisible="{Binding checkVisible}"></Label>
+                                        <Label Text="{Binding KaporaSituation}" FontAttributes="Bold" Grid.Row="2" Grid.Column="1"></Label>
+                                        <Label Text="{Binding OnTheFieldSituation}" FontAttributes="Bold" Grid.Row="3" Grid.Column="1"></Label>
+                                    </Grid>
+
+
+
+                                </Frame>
+                            </Grid>
+
+
+                        </DataTemplate>
+
+
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HarbiSahaYoneticiApp.DetailPages.ReportPage"
+             Title="Raporlar">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="12,8,12,4" Padding="0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                   
+                </Grid.ColumnDefinitions>
+
+             
+                <Label Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                       Text="Harbi Saha üzerinden yapılan kiralamaların istatistiklerini görebilirsiniz." TextColor="#495764" FontAttributes="Bold" FontSize="Medium"></Label>
+
+                <Button Grid.Row="1" Grid.Column="0" BackgroundColor="#495764" TextColor="#F6F8D3" FontAttributes="Bold"
+                        HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontSize="Medium" x:Name="btnDailyReports" 
+                        Text="Günlük Raporlar" Clicked="BtnDailyReports_Clicked"></Button>
+                <Button Grid.Row="2" Grid.Column="0" BackgroundColor="#495764" TextColor="#F6F8D3" FontAttributes="Bold"
+                        HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontSize="Medium" x:Name="btnWeeklyReports" 
+                        Clicked="BtnWeeklyReports_Clicked" Text="Haftalık Rapor"></Button>
+                <Button Grid.Row="3" Grid.Column="0" BackgroundColor="#495764" TextColor="#F6F8D3" FontAttributes="Bold"
+                        HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontSize="Medium" x:Name="btnMonthlyReports"
+                        Clicked="BtnMonthlyReports_Clicked" Text="Aylık Raporlar"></Button>
+                <Button Grid.Row="4" Grid.Column="0" BackgroundColor="#495764" TextColor="#F6F8D3" FontAttributes="Bold"
+                        HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontSize="Medium" x:Name="btnStatistics"
+                        Clicked="BtnStatistics_Clicked" Text="İstatistikler"></Button>
+
+
+            </Grid>
+            
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

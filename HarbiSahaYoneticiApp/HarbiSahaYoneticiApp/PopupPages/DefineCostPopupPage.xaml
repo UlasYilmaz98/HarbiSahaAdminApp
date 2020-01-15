@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HarbiSahaYoneticiApp.PopupPages.DefineCostPopupPage"
+                xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" 
+                 CloseWhenBackgroundIsClicked="True" IsAnimating="True"    
+                 >
+
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            >
+
+
+        </animations:ScaleAnimation>
+
+
+    </pages:PopupPage.Animation>
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="280" HeightRequest="300" BackgroundColor="White">
+
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="12,12,12,2" RowSpacing="8">
+
+            <Grid.RowDefinitions >
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="4*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <!--<Label x:Name="lblDate" Grid.Row="0" Grid.Column="0"  FontSize="Medium" FontAttributes="Bold" TextColor="Black"></Label>-->
+            <Label x:Name="lblDate1" Grid.Row="0" Grid.Column="0"  FontSize="Medium" FontAttributes="Bold" TextColor="Black"></Label>
+            <StackLayout Grid.Row="1" Grid.Column="0"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                <Label Text="Alınan Kapora" FontSize="Small"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Entry HorizontalTextAlignment="End" Keyboard="Numeric"  x:Name="entryKapora" FontSize="Medium"  HorizontalOptions="FillAndExpand"></Entry>
+                    <Label Text="TL" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                </StackLayout>
+                <Label Text="Toplam Fiyat" FontSize="Small" Grid.Column="0"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Entry HorizontalTextAlignment="End" Keyboard="Numeric"  x:Name="entryPrice" FontSize="Medium"  HorizontalOptions="FillAndExpand"></Entry>
+                    <Label Text="TL" HorizontalOptions="Start"  VerticalOptions="Center"></Label>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="0" HorizontalOptions="EndAndExpand">
+                <Button x:Name="btnSave" BackgroundColor="LightBlue" TextColor="White" FontAttributes="Bold" FontSize="Medium"
+                        Clicked="BtnSave_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"
+                        Text="Kaydet"></Button>
+                <Button x:Name="btnCancel" BackgroundColor="LightGray" TextColor="White" FontAttributes="Bold" FontSize="Medium"
+                        Clicked="BtnCancel_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"
+                        Text="Vazgeç"></Button>
+                <!--<Label x:Name="lblSave" Text="KAYDET" TextColor="Blue" HorizontalOptions="Center" Margin="0,0,10,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="tapSave" Tapped="TapSave_Tapped"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label x:Name="lblCancel" Text="VAZGEÇ" TextColor="Blue" HorizontalOptions="Center" Margin="0,0,0,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="tapCancel" Tapped="TapCancel_Tapped"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>-->
+            </StackLayout>
+
+        </Grid>
+
+
+    </StackLayout>
+
+</pages:PopupPage>
